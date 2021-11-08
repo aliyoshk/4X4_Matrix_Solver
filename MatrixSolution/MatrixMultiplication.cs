@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,74 +8,92 @@ namespace MatrixSolution
     {
         public int multiplication()
         {
-            int i, j;
+            int i, j, m, n, p, q;
             int[,] a = new int[4, 4];
-            Console.WriteLine("\t\t\t\tMatrix 4X4 Multiplication Solver");
-            Console.WriteLine("Enter numbers of the 4X4 matrix");
-            for (i = 0; i < 4; i++)
+            Console.WriteLine("\t\t\t\tMatrix Multiplication Calculator");
+
+            Console.WriteLine("Enter the Number of Rows and Column of  A Matrix");
+            m = Int32.Parse(Console.ReadLine());
+            n = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the Number of Rows and Column of B Matrix");
+            p = Int32.Parse(Console.ReadLine());
+            q = Int32.Parse(Console.ReadLine());
+
+            if (n != p)
             {
-                for (j = 0; j < 4; j++)
-                {
-                    a[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
-            Console.WriteLine("First matrix structure is:");
-            for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 4; j++)
-                {
-                    Console.Write(a[i, j] + "\t");
-                }
-                Console.WriteLine();
+                Console.WriteLine("This Matrices Cannot be Multiplied");
+                return 0;
             }
 
-
-            int[,] b = new int[4, 4];
-            Console.WriteLine("Enter numbers of the 4X4 matrix");
-            for (i = 0; i < 4; i++)
+            else
             {
-                for (j = 0; j < 4; j++)
+                Console.WriteLine("Enter Elements of the A matrix");
+                for (i = 0; i < m; i++)
                 {
-                    b[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
-
-            Console.WriteLine("second matrix structure is:");
-            for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 4; j++)
-                {
-                    Console.Write(b[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("\nMultiplication result of the Matrices is:");
-            int[,] c = new int[4, 4];
-            for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 4; j++)
-                {
-
-
-                    c[i, j] = 0;
-                    for (int k = 0; k < 4; k++)
+                    for (j = 0; n < 4; j++)
                     {
-                        c[i, j] += a[i, k] * b[k, j];
+                        a[i, j] = int.Parse(Console.ReadLine());
                     }
                 }
-            }
-            for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 4; j++)
+                Console.WriteLine("Matrix A structure is:");
+                for (i = 0; i < 4; i++)
                 {
-                    Console.Write(c[i, j] + "\t");
+                    for (j = 0; j < 4; j++)
+                    {
+                        Console.Write(a[i, j] + "\t");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
-            }
 
-            Console.ReadKey();
-            return 0;
+
+                int[,] b = new int[4, 4];
+                Console.WriteLine("Enter Elements of the B matrix");
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        b[i, j] = int.Parse(Console.ReadLine());
+                    }
+                }
+
+                Console.WriteLine("Matrix B structure is:");
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        Console.Write(b[i, j] + "\t");
+                    }
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("\nProducts of A X B:");
+                int[,] c = new int[4, 4];
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+
+
+                        c[i, j] = 0;
+                        for (int k = 0; k < 4; k++)
+                        {
+                            c[i, j] += a[i, k] * b[k, j];
+                        }
+                    }
+                }
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        Console.Write(c[i, j] + "\t");
+                    }
+                    Console.WriteLine();
+                }
+
+                Console.ReadKey();
+                return 0;
+            }
         }
     }
 }
