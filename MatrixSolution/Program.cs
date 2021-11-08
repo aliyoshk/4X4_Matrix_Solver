@@ -10,7 +10,7 @@ namespace MatrixSolution
     {
             static void Main(string[] args)
             {
-            Console.WriteLine("\t\t\t\tWelcome to 4X4 Matrix Problem Solver");
+             Console.WriteLine("\t\t\t\tWelcome to Matrix Problem Solver");
             Console.WriteLine("Choose any of the Operation\n1: For Multiplying Matrix\n2: " +
                 "For Finding Matrix Determinant\n3: For Finding Matrix Dot Program");
             int choice = Int32.Parse(Console.ReadLine());
