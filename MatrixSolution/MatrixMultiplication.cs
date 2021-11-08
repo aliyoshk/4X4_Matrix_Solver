@@ -1,83 +1,41 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+
 
 namespace MatrixSolution
 {
-    class MatrixMultiplication
+    class Program
     {
-        public int multiplication()
+        static void Main(string[] args)
         {
-            int i, j;
-            int[,] a = new int[4, 4];
-            Console.WriteLine("\t\t\t\tMatrix Multiplication Calculator");
+            Console.WriteLine("\t\t\t\tWelcome to Matrix Problem Solver");
+            Console.WriteLine("Choose any of the Operation\n1: For Multiplying Matrix\n2: " +
+                "For Finding Matrix Determinant\n3: For Finding Matrix Dot Program");
+            int choice = Int32.Parse(Console.ReadLine());
 
+            Console.WriteLine();
 
-            Console.WriteLine("Enter Elements of the A matrix");
-            for (i = 0; i < 4; i++)
+            if (choice == 1)
             {
-                for (j = 0; j < 4; j++)
-                {
-                    a[i, j] = int.Parse(Console.ReadLine());
-                }
+                MatrixMultiplication mul = new MatrixMultiplication();
+                mul.multiplication();
             }
-            Console.WriteLine("Matrix A structure is:");
-            for (i = 0; i < 4; i++)
+            else if (choice == 2)
             {
-                for (j = 0; j < 4; j++)
-                {
-                    Console.Write(a[i, j] + "\t");
-                }
-                Console.WriteLine();
+                MatrixDeterminant mat = new MatrixDeterminant();
+                mat.Display();
             }
-
-
-            int[,] b = new int[4, 4];
-            Console.WriteLine("Enter Elements of the B matrix");
-            for (i = 0; i < 4; i++)
+            else if (choice == 3)
             {
-                for (j = 0; j < 4; j++)
-                {
-                    b[i, j] = int.Parse(Console.ReadLine());
-                }
+                DotProduct dot = new DotProduct();
+                dot.Dot();
             }
-
-            Console.WriteLine("Matrix B structure is:");
-            for (i = 0; i < 4; i++)
+            else
             {
-                for (j = 0; j < 4; j++)
-                {
-                    Console.Write(b[i, j] + "\t");
-                }
-                Console.WriteLine();
+                Console.WriteLine("No Such Choice");
             }
-
-            Console.WriteLine("\nProducts of A X B:");
-            int[,] c = new int[4, 4];
-            for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 4; j++)
-                {
-
-
-                    c[i, j] = 0;
-                    for (int k = 0; k < 4; k++)
-                    {
-                        c[i, j] += a[i, k] * b[k, j];
-                    }
-                }
-            }
-            for (i = 0; i < 4; i++)
-            {
-                for (j = 0; j < 4; j++)
-                {
-                    Console.Write(c[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
-
-            Console.ReadKey();
-            return 0;
         }
     }
 }
